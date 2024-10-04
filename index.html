@@ -10,52 +10,86 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            color: #333;
+            display: flex;
+            min-height: 100vh;
         }
-        header {
+
+        .sidebar {
             background-color: #0073e6;
             color: white;
-            padding: 20px 0;
+            width: 250px;
+            padding: 30px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
+
+        .sidebar h1 {
+            margin: 0 0 10px;
+            font-size: 24px;
         }
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px 0;
         }
-        h2 {
-            color: #0073e6;
-        }
-        .info {
-            margin-bottom: 20px;
-        }
-        .info h3 {
+
+        .sidebar p {
             margin: 10px 0;
         }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #0073e6;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 30px;
+        }
+
+        .info h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
         .info p {
             margin: 5px 0;
+            color: #555;
         }
+
         footer {
             text-align: center;
             margin: 20px 0;
             font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-<header>
+<div class="sidebar">
     <h1>Your Name</h1>
-    <p>Job Title | Email: your.email@example.com | Phone: +123 456 7890</p>
-</header>
+    <img src="https://via.placeholder.com/100" alt="Profile Picture">
+    <p>Job Title</p>
+    <p>Email: your.email@example.com</p>
+    <p>Phone: +123 456 7890</p>
+    <p>Location: Your City, Country</p>
+</div>
 
-<section>
+<div class="content">
     <h2>About Me</h2>
     <p>A short introduction about yourself. Your professional summary, achievements, and background go here.</p>
 
@@ -85,7 +119,7 @@
         <li>Skill 3</li>
         <li>Skill 4</li>
     </ul>
-</section>
+</div>
 
 <footer>
     <p>&copy; 2024 Your Name - All rights reserved.</p>
