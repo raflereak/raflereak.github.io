@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('presents the current role and CV-based background without runtime errors', async ({ page }) => {
+test('presents the four sections and the current role without runtime errors', async ({ page }) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => {
@@ -8,14 +8,24 @@ test('presents the current role and CV-based background without runtime errors',
   });
   await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Building AI.Keeping it human.');
-  await expect(page.locator('.current-role')).toHaveText('CTO & Lead Developer');
-  await expect(page.locator('.current-card')).toHaveAttribute('href', 'https://hwaljalab.com');
-  await expect(page.locator('.current-card')).toHaveAttribute('target', '_blank');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I research, build, and teach how people and AI work together.');
+  await expect(page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link')).toHaveText(['Research', 'Projects', 'Teaching', 'Activities', 'Contact']);
+  for (const id of ['research', 'projects', 'teaching', 'activities']) await expect(page.locator(`section#${id}`)).toBeVisible();
+  await expect(page.locator('.contents li')).toHaveCount(4);
+
+  await expect(page.getByRole('heading', { name: 'Code Weaver', exact: true })).toBeVisible();
+  await expect(page.locator('.weave-map .status')).toHaveText(['Launching soon', 'Launching soon']);
+  await expect(page.locator('.weave-map h4')).toHaveText(['NCS Interface', 'SWITCHBOARD', 'ASSEMBLY', 'ATELIER']);
+  await expect(page.locator('[data-project]')).toHaveCount(4);
+
+  await expect(page.locator('.course .row-meta')).toHaveText(['Company N', 'Company H', 'Company P']);
+  await expect(page.locator('.org-role')).toHaveText('CTO & Lead Developer');
+  await expect(page.locator('.org')).toHaveAttribute('href', 'https://hwaljalab.com');
+  await expect(page.locator('.org')).toHaveAttribute('target', '_blank');
+  await expect(page.getByRole('heading', { name: 'Student Startup Teams 300+ (U300+)', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'DGIST', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Sunmoon University', exact: true })).toBeVisible();
   await expect(page.locator('.publication')).toHaveCount(2);
-  await expect(page.locator('.project-card')).toHaveCount(4);
+  expect(await page.evaluate(() => document.fonts.check('650 32px Hahmlet', '활자랩'))).toBe(true);
   expect(errors).toEqual([]);
 });
 
@@ -23,14 +33,18 @@ test('switches languages and remembers the chosen language after reloading', asy
   await page.goto('/');
   await page.getByRole('button', { name: 'KO', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('AI를 만들고,사람을 잇습니다.');
-  await expect(page.locator('.current-role')).toHaveText('CTO · 메인 개발자');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('사람과 AI가 함께 일하는 방식을 연구하고, 만들고, 가르칩니다.');
+  await expect(page.locator('.org-role')).toHaveText('CTO 겸 메인 개발자');
+  await expect(page.locator('.course .row-meta')).toHaveText(['N사', 'H사', 'P사']);
+  await expect(page.locator('.weave-map .status').first()).toHaveText('서비스 예정');
+  await expect(page.locator('.translation').first()).toBeHidden();
   await expect(page.getByRole('button', { name: 'KO', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
   await expect(page).toHaveTitle(/김태훈/);
   await page.getByRole('button', { name: 'EN', exact: true }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.locator('.translation').first()).toBeVisible();
 });
 
 test('all project details open, close with Escape, and return keyboard focus', async ({ page }) => {
@@ -47,7 +61,7 @@ test('all project details open, close with Escape, and return keyboard focus', a
     await expect(control).toBeFocused();
   }
   await page.getByRole('button', { name: 'KO', exact: true }).click();
-  await page.getByRole('button', { name: 'RAG 종합보고서 시스템 상세 보기', exact: true }).click();
+  await page.getByRole('button', { name: 'RAG 종합보고서 시스템 자세히 보기', exact: true }).click();
   await expect(page.getByRole('dialog')).toContainText('2024년 2월 – 9월');
   await page.getByRole('button', { name: '프로젝트 상세 닫기', exact: true }).click();
   await expect(page.getByRole('dialog')).not.toBeVisible();
@@ -58,10 +72,11 @@ test('mobile menu navigates, closes, and supports Escape', async ({ page }) => {
   await page.goto('/');
   const menu = page.getByRole('button', { name: 'Open menu', exact: true });
   await menu.click();
-  await expect(page.getByRole('navigation', { name: 'Mobile navigation' })).toBeVisible();
-  await page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('link', { name: 'Work', exact: true }).click();
-  await expect(page).toHaveURL(/#work$/);
-  await expect(page.getByRole('navigation', { name: 'Mobile navigation' })).not.toBeVisible();
+  const mobileNav = page.getByRole('navigation', { name: 'Mobile navigation' });
+  await expect(mobileNav).toBeVisible();
+  await mobileNav.getByRole('link', { name: 'Teaching', exact: true }).click();
+  await expect(page).toHaveURL(/#teaching$/);
+  await expect(mobileNav).not.toBeVisible();
   await menu.click();
   await page.keyboard.press('Escape');
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
@@ -81,7 +96,7 @@ test('downloads the original PDF, expands the archive, and copies the email', as
   const bytes = await pdf.body();
   expect(bytes.subarray(0, 5).toString()).toBe('%PDF-');
   expect(bytes.length).toBe(59723);
-  await page.getByText('More from the workbench', { exact: true }).click();
+  await page.getByText('Six more projects', { exact: true }).click();
   await expect(page.getByText('Discord Python Debugger', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Copy email address', exact: true }).click();
   await expect(page.getByRole('status')).toHaveText('Email address copied.');
