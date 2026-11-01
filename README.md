@@ -28,7 +28,7 @@ A colophon at the end holds contact details.
 
 ## Content sources
 
-- The supplied `cv (2).pdf` is the source for degrees, research, publications, skills, community, awards, earlier projects, and earlier teaching. Its original, unchanged copy is available from `public/files/taehun-kim-cv.pdf`.
+- The supplied `cv (2).pdf` is the source for degrees, research, publications, skills, community, awards, earlier projects, and earlier teaching. The site no longer offers the CV for download.
 - The site owner supplied the **HwaljaLab CTO & Lead Developer** role, the 2026 AX courses, U300+, Asan Doers, and POSCO Texcore. Companies P, H, and N are named the way the owner named them. No dates are given where the owner gave none.
 - **Code Weaver** is HwaljaLab's agent development platform, built in the NCS repositories. Its descriptions summarize those repositories' READMEs: HwaljaLAB HUB, NCS Interface, SWITCHBOARD, ATELIER, ASSEMBLY, the NCS chat-interface spec, and the NCS agent-architecture research. The repositories are private, so the site does not link to them. SWITCHBOARD and ATELIER are marked "launching soon" at the owner's word.
 - WorkMe is attributed to AM, as in the CV. Its start date is retained without claiming its present status or an affiliation with HwaljaLab.
@@ -38,14 +38,14 @@ A colophon at the end holds contact details.
 
 - One spot ink, indigo `#22389a` (쪽빛), on white. The title-page headline is the only large indigo text.
 - **Hahmlet** sets headings in both languages. `public/fonts/hahmlet-650.woff2` is a static weight-650 instance, subset to the 2,350 KS X 1001 Hangul syllables plus Latin and common punctuation, so edited copy stays covered. **DM Sans** sets body text, with the system Hangul face for Korean.
-- The interface supports English and Korean, keyboard navigation, reduced motion, responsive layouts from 320px, project dialogs, mobile navigation, email copying, and CV downloads. Language preference is stored locally when storage is available.
+- The interface supports English and Korean, keyboard navigation, reduced motion, responsive layouts from 320px, project dialogs, mobile navigation, and email copying. Language preference is stored locally when storage is available.
 
 ## Files
 
 - `index.html`: page structure and bilingual content.
 - `src/style.css`: design, responsive behavior, and print styles.
 - `src/main.js`: translations, project details, navigation, and clipboard.
-- `public/`: locally served fonts and their licenses, favicon, and original CV.
+- `public/`: locally served fonts and their licenses, and favicon.
 - `preview/`: desktop and mobile screenshots of the current design.
 
 ## Deployment

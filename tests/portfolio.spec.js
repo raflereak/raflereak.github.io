@@ -83,19 +83,10 @@ test('mobile menu navigates, closes, and supports Escape', async ({ page }) => {
   await expect(menu).toBeFocused();
 });
 
-test('downloads the original PDF, expands the archive, and copies the email', async ({ page, context }) => {
+test('offers no CV download, expands the archive, and copies the email', async ({ page, context }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
   await page.goto('/');
-  const downloadPromise = page.waitForEvent('download');
-  await page.getByRole('link', { name: 'Download CV', exact: true }).click();
-  const download = await downloadPromise;
-  expect(download.suggestedFilename()).toBe('Taehun-Kim-CV.pdf');
-  expect(await download.failure()).toBeNull();
-  const pdf = await page.request.get('/files/taehun-kim-cv.pdf');
-  expect(pdf.ok()).toBeTruthy();
-  const bytes = await pdf.body();
-  expect(bytes.subarray(0, 5).toString()).toBe('%PDF-');
-  expect(bytes.length).toBe(59723);
+  await expect(page.locator('a[href$=".pdf"], a[download]')).toHaveCount(0);
   await page.getByText('Six more projects', { exact: true }).click();
   await expect(page.getByText('Discord Python Debugger', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Copy email address', exact: true }).click();

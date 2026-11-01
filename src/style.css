@@ -52,9 +52,6 @@ svg{display:block}
 .language-switch{display:flex;border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
 .language-switch button{padding:6px 9px;font-size:12px;letter-spacing:.04em;color:var(--muted)}
 .language-switch button[aria-pressed=true]{background:var(--ink);color:#fff}
-.header-cv{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;font-size:14px;border:1px solid var(--rule-strong);border-radius:4px;transition:border-color .2s}
-.header-cv:hover{border-color:var(--ink)}
-.header-cv .icon{width:14px;height:14px}
 .menu-toggle{display:none;width:36px;height:36px;padding:10px 7px}
 .menu-toggle span{display:block;height:1.5px;background:var(--ink);transition:transform .2s}
 .menu-toggle span+span{margin-top:7px}
@@ -238,7 +235,6 @@ dialog::backdrop{background:rgb(22 26 43 / 62%)}
   .dialog-shell dl>div{grid-template-columns:84px minmax(0,1fr);gap:10px}
 }
 @media (max-width:420px){
-  .header-cv{display:none}
   .header-inner{gap:12px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
