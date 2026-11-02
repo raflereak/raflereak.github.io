@@ -13,7 +13,7 @@ Open <http://127.0.0.1:4317>. Run `npm run build` to create the static site in `
 
 ## Verify
 
-`npm test` runs browser checks against a fresh production build on port 4318: the four sections and the current role, the Code Weaver map, translations and the saved language, project dialogs, keyboard focus, mobile navigation, the PDF download, email clipboard, and seven responsive widths in both languages. It uses the locally installed Google Chrome. To use Playwright's Chromium instead, run `npx playwright install chromium` then `PLAYWRIGHT_CHANNEL=chromium npm test`.
+`npm test` runs browser checks against a fresh production build on port 4318: the four sections and the current role, the Code Weaver map, translations and the saved language, project dialogs, keyboard focus, mobile navigation, the absence of a CV download, email clipboard, and seven responsive widths in both languages. It uses the locally installed Google Chrome. To use Playwright's Chromium instead, run `npx playwright install chromium` then `PLAYWRIGHT_CHANNEL=chromium npm test`.
 
 ## Structure
 
