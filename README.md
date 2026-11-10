@@ -21,7 +21,7 @@ The page reads like a typeset book, a nod to HwaljaLab (활자, movable type): a
 
 1. **Research**: interests, publications, and degrees.
 2. **Projects**: Code Weaver, then earlier projects, an archive, and the toolkit.
-3. **Teaching**: 2026 corporate AX courses, earlier SW and AI teaching, and the public AX-Data materials.
+3. **Teaching**: 2026 corporate AX courses, and earlier SW and AI teaching.
 4. **Activities**: HwaljaLab, startup programs, awards, and community.
 
 A colophon at the end holds contact details.
@@ -31,7 +31,7 @@ A colophon at the end holds contact details.
 - The supplied `cv (2).pdf` is the source for degrees, research, publications, skills, community, awards, earlier projects, and earlier teaching. The site no longer offers the CV for download.
 - The site owner supplied the **HwaljaLab CTO & Lead Developer** role, the 2026 AX courses, U300+, Asan Doers, and POSCO Texcore. Companies P, H, and N are named the way the owner named them. No dates are given where the owner gave none.
 - **Code Weaver** is HwaljaLab's agent development platform, built in the NCS repositories. Its descriptions summarize those repositories' READMEs: HwaljaLAB HUB, NCS Interface, SWITCHBOARD, ATELIER, ASSEMBLY, the NCS chat-interface spec, and the NCS agent-architecture research. The repositories are private, so the site does not link to them. SWITCHBOARD and ATELIER are marked "launching soon" at the owner's word.
-- WorkMe is attributed to AM, as in the CV. Its start date is retained without claiming its present status or an affiliation with HwaljaLab.
+- WorkMe is attributed to AM, as in the CV. AM ran from December 2023 to February 2024 and is not affiliated with HwaljaLab, which started in November 2025.
 - Fonts are served locally. No analytics, APIs, tracking, or server-side services are used.
 
 ## Design

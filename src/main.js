@@ -6,8 +6,8 @@ const projects = {
     ko: { title: 'RAG 종합보고서 시스템', type: 'AI 시스템, 2024', description: '외부기관을 위해 LLM과 검색 증강 생성(RAG)을 활용한 종합보고서 작성 시스템을 개발했습니다. 시스템 종합 개발을 담당했습니다.', facts: [['역할', '시스템 종합 개발'], ['기간', '2024년 2월 – 9월'], ['기관', '외부기관'], ['주요 분야', 'LLM, 검색 증강 생성(RAG), 보고서 작성']] },
   },
   workme: {
-    en: { title: 'WorkMe', type: 'LLM web service, AM', description: 'An LLM solution web service at startup AM. I joined the project as CTO and developer, working on the technology and its implementation.', facts: [['Role', 'CTO & developer'], ['Started', 'December 2023'], ['Organization', 'Startup AM'], ['Focus', 'LLM solutions, web service development']] },
-    ko: { title: 'WorkMe', type: 'LLM 웹서비스, AM', description: '스타트업 AM에서 개발한 LLM 솔루션 웹서비스입니다. CTO 겸 개발자로 참여해 기술과 서비스 구현을 담당했습니다.', facts: [['역할', 'CTO 겸 개발자'], ['시작', '2023년 12월'], ['소속', '스타트업 AM'], ['주요 분야', 'LLM 솔루션, 웹서비스 개발']] },
+    en: { title: 'WorkMe', type: 'LLM web service, AM', description: 'An LLM web service at startup AM that turns email into an asset, personalizing and summarizing it to simplify email work. I joined as CTO and developer, working on the technology and its implementation.', facts: [['Role', 'CTO & developer'], ['Period', 'December 2023 – February 2024'], ['Organization', 'Startup AM'], ['Focus', 'Email assetization, personalization, summarization']] },
+    ko: { title: 'WorkMe', type: 'LLM 웹서비스, AM', description: '스타트업 AM에서 개발한 LLM 웹서비스입니다. 이메일을 자산화해 사용자에 맞게 개인화하고 요약해, 이메일 업무를 간단하게 해 줍니다. CTO 겸 개발자로 참여해 기술과 서비스 구현을 담당했습니다.', facts: [['역할', 'CTO 겸 개발자'], ['기간', '2023년 12월 – 2024년 2월'], ['소속', '스타트업 AM'], ['주요 분야', '이메일 자산화, 개인화, 요약']] },
   },
   corpus: {
     en: { title: 'NIA Corpus Data Project', type: 'Language data, UNIVA', description: 'Participated as a developer in the NIA corpus data construction project at UNIVA.', facts: [['Role', 'Developer'], ['Period', 'June – December 2023'], ['Organization', 'UNIVA'], ['Focus', 'Corpus data construction']] },

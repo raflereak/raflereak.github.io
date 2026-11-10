@@ -24,7 +24,7 @@ test('presents the four sections and the current role without runtime errors', a
   await expect(page.locator('.org')).toHaveAttribute('target', '_blank');
   await expect(page.getByRole('heading', { name: 'Student Startup Teams 300+ (U300+)', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'DGIST', exact: true })).toBeVisible();
-  await expect(page.locator('.publication')).toHaveCount(2);
+  await expect(page.locator('.publication')).toHaveCount(4);
   expect(await page.evaluate(() => document.fonts.check('650 32px Hahmlet', '활자랩'))).toBe(true);
   expect(errors).toEqual([]);
 });

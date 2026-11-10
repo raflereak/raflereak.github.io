@@ -94,6 +94,7 @@ html[lang=ko] .chapter-lede{line-height:1.75}
 .rows>li{display:grid;grid-template-columns:10.5em minmax(0,1fr) auto;column-gap:24px;padding-block:18px;border-top:1px solid var(--rule)}
 .rows>li:first-child{padding-top:0;border-top:0}
 .row-when{padding-top:3px;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row-body a{color:var(--indigo);text-decoration:underline;text-underline-offset:3px}
 .row-body h4{font-size:18px;font-weight:500;line-height:1.45}
 .row-meta,.row-authors{font-size:14px;color:var(--muted)}
 .row-text{max-width:42em;margin-top:4px;font-size:15px}
@@ -143,11 +144,6 @@ html[lang=ko] .feature-statement{line-height:1.5}
 .toolkit dt{color:var(--muted)}
 
 /* Teaching */
-.resource-link{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:16px;padding:18px 20px;border:1px solid var(--rule-strong);transition:border-color .2s}
-.resource-link:hover{border-color:var(--indigo)}
-.resource-link:hover .icon{transform:translate(2px,-2px)}
-.resource-name{font-weight:600}
-.resource-text{font-size:15px;color:var(--muted)}
 
 /* Activities */
 .org{display:grid;grid-template-columns:var(--label) minmax(0,1fr) minmax(0,1fr);gap:12px var(--gap);align-items:start;padding-block:clamp(24px,3.4vw,40px);border-block:1px solid var(--rule)}
@@ -229,9 +225,7 @@ dialog::backdrop{background:rgb(22 26 43 / 62%)}
   .contents a{grid-template-columns:1.6em minmax(0,1fr);row-gap:2px;padding-inline:4px}
   .contents-note{grid-column:2}
   .toolkit>div{grid-template-columns:1fr;gap:2px}
-  .resource-link{grid-template-columns:minmax(0,1fr) auto}
-  .resource-text{grid-column:1/-1;grid-row:2}
-  .dialog-shell{padding:44px 22px 26px}
+      .dialog-shell{padding:44px 22px 26px}
   .dialog-shell dl>div{grid-template-columns:84px minmax(0,1fr);gap:10px}
 }
 @media (max-width:420px){
