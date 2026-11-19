@@ -18,7 +18,7 @@ test('presents the four sections and the current role without runtime errors', a
   await expect(page.locator('.weave-map h4')).toHaveText(['NCS Interface', 'SWITCHBOARD', 'ASSEMBLY', 'ATELIER']);
   await expect(page.locator('[data-project]')).toHaveCount(4);
 
-  await expect(page.locator('.course .row-meta')).toHaveText(['Company N', 'Company H', 'Company P']);
+  await expect(page.locator('.course h4')).toHaveText(['Corporate AX courses']);
   await expect(page.locator('.org-role')).toHaveText('CTO & Lead Developer');
   await expect(page.locator('.org')).toHaveAttribute('href', 'https://hwaljalab.com');
   await expect(page.locator('.org')).toHaveAttribute('target', '_blank');
@@ -35,7 +35,7 @@ test('switches languages and remembers the chosen language after reloading', asy
   await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('사람과 AI가 함께 일하는 방식을 연구하고, 만들고, 가르칩니다.');
   await expect(page.locator('.org-role')).toHaveText('CTO 겸 메인 개발자');
-  await expect(page.locator('.course .row-meta')).toHaveText(['N사', 'H사', 'P사']);
+  await expect(page.locator('.course h4')).toHaveText(['기업 AX 교육 과정']);
   await expect(page.locator('.weave-map .status').first()).toHaveText('서비스 예정');
   await expect(page.locator('.translation').first()).toBeHidden();
   await expect(page.getByRole('button', { name: 'KO', exact: true })).toHaveAttribute('aria-pressed', 'true');
